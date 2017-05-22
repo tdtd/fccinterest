@@ -1,0 +1,55 @@
+.post-fixed{
+  position: fixed;
+  max-width: 100%;
+  z-index: 99;
+  right: 0;
+  bottom: 6.5rem;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.125);
+  border-radius: .25rem;
+  .post{
+    .post-form{
+      padding: 2rem; 
+    }
+  }
+}
+
+
+
+#message-panel{
+  max-width: 100%;
+  transition: width 0.5s ease-in-out;
+}
+
+.post-button{
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 99;
+}
+  
+button.add-button{
+  font-size: 2rem;
+  font-weight: normal;
+  line-height: 2.5rem;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+    
+  min-height: 5rem;
+  min-width: 5rem;
+  border-radius: 5rem;
+  transition: all 0.2s ease-in-out;
+  background: white;
+  padding: .5rem 1rem;
+  color: #5cb85c;
+  border: 2px solid #5cb85c;
+  &i{
+    user-select: none;
+  }
+  &:hover, &:active{
+    color: white;
+    background: #449d44;
+  }
+}

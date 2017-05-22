@@ -1,0 +1,21 @@
+@keyframes floatup{
+  from {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate(0, -5rem);
+    opacity: .01;
+    
+  }
+}
+
+.float{
+  @include animate(floatup, 1.7s, once, fadeout);
+}
+
+.btn-next{
+  font-size: 3rem;
+  min-width: 100%;
+}

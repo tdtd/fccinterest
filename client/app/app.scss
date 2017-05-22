@@ -1,0 +1,83 @@
+$fa-font-path: '/assets/fonts/font-awesome/';
+@import '~font-awesome/scss/font-awesome';
+@import '~bootstrap/scss/bootstrap';
+// @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,900|Roboto:300,500,700,900);
+
+
+.card-columns {
+  column-count: 3;
+  
+  
+  @include media-breakpoint-only(xs) {
+    column-count: 1;
+  }
+  @include media-breakpoint-only(sm) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(lg) {
+    column-count: 3;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 3;
+  }
+}
+
+/**
+ * App-wide Styles
+ */
+.bdy{
+  margin-top: 21px;
+}
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.btn{
+  cursor: pointer;
+}
+
+.hide{
+  display: none;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+
+@mixin animate($name, $duration, $count, $timing){
+  -webkit-animation-name: $name;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-iteration-count: $count;
+  -webkit-animation-timing-function: $timing;
+  -moz-animation-name: $name;
+  -moz-animation-duration: $duration;
+  -moz-animation-iteration-count: $count;
+  -moz-animation-timing-function: $timing;
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-iteration-count: $count;
+  animation-timing-function: $timing;
+}
+
+// Component styles are injected through gulp
+/* inject:scss */
+@import 'admin/admin';
+@import 'components/addPost/addPost';
+@import 'directives/imgpop/imgpop';
+@import 'float/float';
+@import 'main/main';
+@import 'me/me';
+@import 'recent/recent';
+@import 'user/user';
+@import 'usersearch/usersearch';
+@import '../components/footer/footer';
+@import '../components/navbar/navbar';
+@import '../components/oauth-buttons/oauth-buttons';
+/* endinject */

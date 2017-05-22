@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="text-center" ng-hide="usCtrl.searchFinished">
+    <h1>Searching for user {{ usCtrl.user}}</h1>
+  </div>
+  
+  <div ng-show="usCtrl.searchFinished" class="list-container">
+    <div ng-show="usCtrl.usersFound.length">
+      <h1  class="text-center">Found the Following Users</h1>
+      <div class="list-group">
+        <a ui-sref="user({id: user.name})" class="list-group-item list-group-item-action" ng-repeat="user in usCtrl.usersFound">{{user.name}}</a>
+      </div>
+    </div>
+    <div class="text-center" ng-hide="usCtrl.usersFound.length">
+      <h1 ng-show="usCtrl.pag <= 0">No users found for [ {{ usCtrl.user}} ] </h1>
+      <h1 ng-show="usCtrl.pag > 0">No More Users Found</h1>
+    </div>
+  </div>
+  
+  <div class="row justify-content-between">
+    <button ng-click="usCtrl.changePage(-1)" ng-disabled="usCtrl.pag <= 0"  class="btn btn-outline-primary"> <i class="fa fa-chevron-left" aria-hidden="true"></i> </button>
+    <button ng-click="usCtrl.changePage(1)" ng-disabled="usCtrl.usersFound.length < usCtrl.limit"  class="btn btn-outline-primary"> <i class="fa fa-chevron-right" aria-hidden="true"></i> </button>
+  </div> 
+</div>

@@ -1,0 +1,28 @@
+<nav class="navbar navbar-toggleable-md sticky-top navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="col-2">
+    <a class="navbar-brand" ui-sref="main">INTEREST</a>
+  </div>
+  
+
+  <div class="collapse navbar-collapse" id="navbarToggler">
+    <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+      <li class="nav-item" ng-repeat="item in $ctrl.menu" ui-sref-active="active">
+        <a class="nav-link" ui-sref="{{item.state}}">{{item.title}}</a>
+      </li>
+      <li class="nav-item" ng-show="$ctrl.isLoggedIn()" ui-sref-active="active"><a class="nav-link" ui-sref="me">My Posts</a></li>
+    </ul>
+    <ul class="navbar-nav ml-auto mt-2 mt-md-0">
+      <li class="nav-item" ng-hide="$ctrl.isLoggedIn()" ui-sref-active="active"><a class="nav-link" ui-sref="signup">Sign up</a></li>
+      <li class="nav-item" ng-hide="$ctrl.isLoggedIn()" ui-sref-active="active"><a class="nav-link" ui-sref="login">Login</a></li>
+      <li class="nav-item" ng-show="$ctrl.isLoggedIn()" ui-sref-active="active"><a class="nav-link" ui-sref="settings"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
+      <li class="nav-item" ng-show="$ctrl.isLoggedIn()"><a class="nav-link" ui-sref="logout">Logout</a></li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" ng-submit="$ctrl.searchSubmit()">
+      <input class="form-control mr-sm-2" type="text" placeholder="User Search" ng-model="$ctrl.userSearch">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>

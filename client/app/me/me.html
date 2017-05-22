@@ -1,0 +1,33 @@
+<add-post post="$ctrl.newPost" submit="$ctrl.addPost($ctrl.newPost)"></add-post>
+
+<div class="container" size="992" containersize>
+  <div class="card-columns">
+    <div class="card" ng-repeat="post in $ctrl.recentPosts track by $index">
+      <img class="card-img-top img-fluid" ng-src="{{post.url}}" err-src="./assets/images/placeholderlogo.png" alt="Card image cap" imgpop>
+      <div class="card-block">
+        <h4 class="card-title" ng-show="post.title ">{{ post.title  | limitTo: 50}}</h4> 
+        <p class="card-text" ng-show="post.comment">{{post.comment | limitTo: 140}}<span ng-show="post.comment.length > 140">...</span></p>
+        <p class="card-text"><small class="text-muted">First posted {{post.date | date}} by <a href="/user/{{post.user.name}}">{{post.user.name}}</a> <span ng-hide="post.user.name">[deleted]</span></small></p>
+      </div>
+      <div class="card-footer">
+        <div class="row justify-content-around">
+          <div class="col-4 text-center">
+            <button class="btn" ng-class="$ctrl.isClass(post.liked, 'btn-outline-primary', 'btn-primary')" ng-click="$ctrl.likePost(post._id)"><i class="fa fa-heart-o like" aria-hidden="true"></i></button>
+            <p class="card-text"><small class="text-muted">{{ post.likeRating }}</small></p>
+          </div>
+          <div class="col-4 text-center">
+            <button class="btn btn-outline-danger" ng-click="$ctrl.deletePost(post._id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+          </div>
+          
+          <div class="col-4 text-center">
+            <button class="btn btn-warning" disabled><i class="fa fa-retweet repost" aria-hidden="true"></i></button>
+            <p class="card-text"><small class="text-muted">{{ post.repostRating }}</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <button class="btn btn-lg btn-outline-success btn-next" ng-click="$ctrl.getMorePosts()" ng-disabled="$ctrl.canGetMore()" ng-class="$ctrl.isClass($ctrl.canGetMore(), '', 'hide')"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></button>
+  </div>
+</div>

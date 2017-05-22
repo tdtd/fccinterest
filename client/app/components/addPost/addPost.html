@@ -1,0 +1,27 @@
+<div class="post-fixed">
+  <div class="post" id="message-panel">
+    <form class="post-form" ng-submit="$ctrl.submit()">
+      <h3>New Post</h3>
+      <div class="form-group">
+        <label for="formGroupExampleInput">Title</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="New Post Title" ng-model="$ctrl.post.title">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Comment</label>
+        <textarea class="form-control" id="formGroupExampleInput2" placeholder="New Post Comment" ng-model="$ctrl.post.comment"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput3">Image URL</label>
+        <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="New Post URL"  ng-model="$ctrl.post.url">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" ng-click="$ctrl.submit()">Add New</button>
+      </div>
+    </form>
+  </div>
+  
+</div>
+<!-- ng-init="apCtrl.hidePanel('message-panel')" -->
+<div class="post-button">
+  <button class="btn btn-success add-button" ng-click="$ctrl.togglePanel('message-panel')" ><i class="fa fa-plus" aria-hidden="true"></i></button>
+</div>
